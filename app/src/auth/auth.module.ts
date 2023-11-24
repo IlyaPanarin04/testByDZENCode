@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import {TypeOrmModule} from "@nestjs/typeorm";
+import {User} from "./auth.entity";
 
 @Module({
   imports: [
@@ -15,7 +16,7 @@ import {TypeOrmModule} from "@nestjs/typeorm";
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: false,
     }),
-    TypeOrmModule.forFeature([])
+    TypeOrmModule.forFeature([User])
   ],
   providers: [AuthService],
   controllers: [AuthController]
