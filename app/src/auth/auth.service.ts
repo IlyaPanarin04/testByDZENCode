@@ -31,7 +31,11 @@ export class AuthService {
             }
         })
 
-        return user ? user.id : new Error("Data is not correct");
+        if (!user) {
+            throw new Error("Неверное имя пользователя или пароль");
+        }
+
+        return user.id;
     }
 
 }

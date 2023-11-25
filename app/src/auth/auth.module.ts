@@ -6,16 +6,6 @@ import {User} from "./auth.entity";
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'test',
-      database: 'postgres',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: false,
-    }),
     TypeOrmModule.forFeature([User])
   ],
   providers: [AuthService],
